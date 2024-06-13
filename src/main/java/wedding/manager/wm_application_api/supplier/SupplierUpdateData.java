@@ -1,5 +1,6 @@
 package wedding.manager.wm_application_api.supplier;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import wedding.manager.wm_application_api.commons.AddressData;
 
@@ -11,6 +12,7 @@ public record SupplierUpdateData(
         String type,
         String description,
         HiringStatus hiringStatus,
+        @Valid
         AddressData addressData
 
 ) {
