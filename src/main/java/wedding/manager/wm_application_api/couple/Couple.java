@@ -40,12 +40,36 @@ public class Couple {
     @Embedded
     Address address;
 
+    private Boolean active;
 
     public Couple(CoupleData coupleData) {
+        this.active = true;
         this.fianceName = coupleData.fianceName();
         this.fianceeName = coupleData.fianceeName();
         this.fianceEmail = coupleData.fianceEmail();
         this.fianceeEmail = coupleData.fianceeEmail();
         this.address = new Address(coupleData.addressData());
+    }
+
+    public void updateinfo(CoupleUpdateData coupleUpdateData) {
+        if(coupleUpdateData.fianceName() != null){
+            this.fianceName = coupleUpdateData.fianceName();
+        }
+        if(coupleUpdateData.fianceeName() != null){
+            this.fianceeName = coupleUpdateData.fianceeName();
+        }
+        if(coupleUpdateData.fianceEmail() != null){
+            this.fianceEmail = coupleUpdateData.fianceEmail();
+        }
+        if(coupleUpdateData.fianceeEmail() != null){
+            this.fianceeEmail = coupleUpdateData.fianceeEmail();
+        }
+        if(coupleUpdateData.addressData() != null){
+            this.address.updateAddress(coupleUpdateData.addressData());
+        }
+    }
+
+    public void deleteLogical() {
+        this.active = false;
     }
 }
