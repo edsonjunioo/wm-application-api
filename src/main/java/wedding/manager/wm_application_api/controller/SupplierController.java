@@ -1,5 +1,6 @@
 package wedding.manager.wm_application_api.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ public class SupplierController {
 
     @PostMapping
     @Transactional
-    public void create(@RequestBody SupplierData supplierData){
+    public void create(@RequestBody @Valid SupplierData supplierData){
         supplierRepository.save(new Supplier(supplierData));
     }
 

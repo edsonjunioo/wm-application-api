@@ -22,6 +22,10 @@ public class PaymentSupplier {
 
    @Column(name = "end_value")
    private BigDecimal endValue;
+
+   @Column(name = "initial_amount_paid")
+   private boolean initialAmountPaid;
+
    private String rules;
 
    @Column(name = "percent_start_value")
@@ -34,6 +38,7 @@ public class PaymentSupplier {
         this.totalPrice = paymentSupplierData.totalPrice();
         this.startValue = paymentSupplierData.startValue();
         this.endValue = paymentSupplierData.endValue();
+        this.initialAmountPaid = paymentSupplierData.initialAmountPaid();
         this.rules = paymentSupplierData.rules();
         this.percentStartValue = paymentSupplierData.percentStartValue();
         this.totalPayment = paymentSupplierData.totalPayment();
